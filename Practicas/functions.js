@@ -13,8 +13,7 @@ function print(){
         return;
     }
 
-
-    articles.push(itemId.value + ": $" + itemPrice.value);
+    articles.push(itemId.value + " . . . . . . . . . .  $" + itemPrice.value);
     totalPrice += parseFloat(itemPrice.value);
     let listElement = document.createElement("ion-item");
 
