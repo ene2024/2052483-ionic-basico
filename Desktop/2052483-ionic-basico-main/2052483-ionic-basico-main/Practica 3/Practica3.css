@@ -1,0 +1,43 @@
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h4{
+    float: left;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    width: 5vw;
+}
+
+input{
+    margin-top: 19px;
+}
+
+div{
+    margin-bottom: 22px;
+}
+
+button{
+    width: 10%;
+    border-radius: 15px;
+    background-color: #620D4F;
+    color: white;
+    font-size: large;
+    margin-right: 100%;
+    width: 25vw;
+    margin-bottom: 10px;
+    margin-left: 8vh;
+}
+
+#popUp{
+    display: none;
+}
+
+#message{
+    font-weight: normal;
+}
+
+#continueBt{
+    margin-left: 50px;
+    margin-top: 15px;
+}
