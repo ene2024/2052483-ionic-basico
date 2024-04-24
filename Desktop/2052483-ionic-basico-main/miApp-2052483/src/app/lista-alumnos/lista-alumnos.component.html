@@ -9,7 +9,7 @@
 
 <ion-content [fullscreen]="true"> 
 
-  <form #alumnoData="ngForm">
+  <form #alumnoData="ngForm" (ngSubmit)="agregarAlumno()">
     <ion-label>Nombre:</ion-label>
     <ion-input [(ngModel)]="nuevoAlumno.nombre" type="text" required name="Nombre" placeholder="Ingrese su nombre"></ion-input>
     <ion-label>
@@ -17,7 +17,7 @@
     </ion-label>
 
     <div>
-      <ion-button type="Submit" [disabled]="!alumnoData.valid" (click)="agregarAlumno()">Submit!</ion-button>
+      <ion-button type="Submit" [disabled]="!alumnoData.valid">Submit!</ion-button>
     </div>
     
   </form>
