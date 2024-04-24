@@ -1,0 +1,35 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Lista de Alumnos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true"> 
+
+  <form #alumnoData="ngForm">
+    <ion-label>Nombre:</ion-label>
+    <ion-input [(ngModel)]="nuevoAlumno.nombre" type="text" required name="Nombre" placeholder="Ingrese su nombre"></ion-input>
+    <ion-label>
+      <ion-checkbox [(ngModel)]="nuevoAlumno.presente" name="presente"></ion-checkbox> Presente
+    </ion-label>
+
+    <div>
+      <ion-button type="Submit" [disabled]="!alumnoData.valid" (click)="agregarAlumno()">Submit!</ion-button>
+    </div>
+    
+  </form>
+  <hr>
+  <ion-label><b>Lista de asitencia:</b></ion-label>
+  <ion-list *ngFor="let alumno of alumnos">
+    
+
+    <ion-item>
+      <ion-label>{{alumno.nombre}} - Presente: {{alumno.presente}}</ion-label>
+    </ion-item>
+
+  </ion-list>
+  
+</ion-content>
