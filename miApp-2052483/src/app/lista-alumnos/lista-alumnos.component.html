@@ -1,4 +1,5 @@
 
+
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
@@ -7,32 +8,29 @@
   </ion-toolbar>
 </ion-header>
 
-<!--
-  SE AGREGO *ngIf A CADA ITEM DESLIZABLE PARA QUE APAREZCA SOLAMENTE AQUELLA ACCION POSIBLE
-  ES DECIR, SI YA ESTA MARCADO COMO FAVORITO, ESTA OPCION (side="start") NO APARECE, SOLAMENTE
-  AQUELLA PARA ELIMINAR, Y VICEVERSA
-
-  SE AÑADIO FUNCIONALIDAD A LOS BOTONES, SE PUEDE AGREGAR Y ELIMINAR NOMBRES DE LA LISTA DE FAVORITOS
--->
-
 <ion-content [fullscreen]="true"> 
+
+  <form #alumnoData="ngForm" (ngSubmit)="agregarAlumno()">
+    <ion-label>Nombre:</ion-label>
+    <ion-input [(ngModel)]="nuevoAlumno.nombre" type="text" required name="Nombre" placeholder="Ingrese su nombre"></ion-input>
+    <ion-label>
+      <ion-checkbox [(ngModel)]="nuevoAlumno.presente" name="presente"></ion-checkbox> Presente
+    </ion-label>
+
+    <div>
+      <ion-button type="Submit" [disabled]="!alumnoData.valid">Submit!</ion-button>
+    </div>
+    
+  </form>
+  <hr>
+  <ion-label><b>Lista de asitencia:</b></ion-label>
   <ion-list *ngFor="let alumno of alumnos">
+    
 
-    <ion-item-sliding>
-      <ion-item-options side="start">
-        <ion-item-option color="success" (click)="addFav(alumno)" *ngIf="!favoritos.includes(alumno)">Agregar a favoritos</ion-item-option>
-      </ion-item-options>
+    <ion-item>
+      <ion-label>{{alumno.nombre}} - Presente: {{alumno.presente}}</ion-label>
+    </ion-item>
 
-      <ion-item>
-        {{alumno}}
-      </ion-item>
-
-      <ion-item-options side="end">
-        <ion-item-option color="danger" (click)="presentActionSheet(alumno)" *ngIf="favoritos.includes(alumno)">Eliminar de favoritos</ion-item-option>
-      </ion-item-options>
-
-    </ion-item-sliding>
-  
   </ion-list>
-
+  
 </ion-content>

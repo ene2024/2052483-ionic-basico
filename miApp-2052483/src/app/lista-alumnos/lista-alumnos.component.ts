@@ -1,5 +1,5 @@
 import { Component, OnInit, numberAttribute } from '@angular/core';
-import { ActionSheetController } from '@ionic/angular';
+import { alumno } from 'src/Interfaces/alumno.model';
 
 @Component({
   selector: 'app-lista-alumnos',
@@ -8,54 +8,28 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class ListaAlumnosComponent  implements OnInit {
 
-  constructor(private actionSheetCtrl: ActionSheetController) {}
+  constructor() {}
 
   ngOnInit() {}
 
-  async presentActionSheet(name: string) {
-    const actionSheet = await this.actionSheetCtrl.create({
-      header: 'Actions',
-      buttons: [
-        {
-          text: 'Delete',
-          role: 'destructive',
-          data: {
-            action: 'delete',
-          },
-          handler: () => {
-            this.delFav(name);
-          },
-        },
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          data: {
-            action: 'cancel',
-          },
-        },
-      ],
-    });
+  alumnos : alumno[] = []//["Carlos", "Ximena", "Alberto", "Eduardo", "Baraba", "Georgina", "Kevin"];
 
-    await actionSheet.present();
-  }
+  agregarAlumno(): void{
 
-  alumnos : any = ["Carlos", "Ximena", "Alberto", "Eduardo", "Baraba", "Georgina", "Kevin"];
+    this.alumnos.push(this.nuevoAlumno);
 
-  favoritos : any = [];
-
-  addFav(nombre: string): void{
-
-    this.favoritos.push(nombre);
-    alert(nombre + " se ha agregado correctamente a favoritos");
+    this.nuevoAlumno = {
+      nombre: '',
+      presente: false
+    }
+    
+    alert(this.alumnos)
 
   }
 
-  delFav(nombre: string): void{
-
-    var index : number = this.favoritos.indexOf(nombre, 0);
-    delete(this.favoritos[index]);
-
-    alert(nombre + " ha sido eliminado de favoritos");
+  nuevoAlumno: alumno = { 
+    nombre: '',
+    presente: false
   }
 
 }
