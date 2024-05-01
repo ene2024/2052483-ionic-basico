@@ -11,4 +11,11 @@
   <ion-button (click)="tomarFoto()">
     Tomar foto
   </ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3" *ngFor="let foto of fotos; index as i">
+        <img [src]="foto.webViewPath" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

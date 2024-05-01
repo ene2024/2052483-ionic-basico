@@ -5,12 +5,12 @@ import { ProductosComponent } from './productos/productos.component';
 
 const routes: Routes = [
   {
-    path: 'productos',
-    component: ProductosComponent
+    path: 'camara',
+    component: CamaraComponent
   },
   {
     path: '',
-    redirectTo: '/productos',
+    redirectTo: '/camara',
     pathMatch: 'full'
   }
 ];
