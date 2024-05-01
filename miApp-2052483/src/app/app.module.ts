@@ -10,9 +10,10 @@ import { ListaAlumnosComponent } from './lista-alumnos/lista-alumnos.component';
 import { ProductosComponent } from './productos/productos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CamaraComponent } from './camara/camara.component';
 
 @NgModule({
-  declarations: [AppComponent, ListaAlumnosComponent, ProductosComponent], /* SE CAMBIO AQUÍ : SE AGREGÓ EL COMPONENTE DE PRODUCTOS */
+  declarations: [AppComponent, ListaAlumnosComponent, ProductosComponent, CamaraComponent], /* SE CAMBIO AQUÍ : SE AGREGÓ EL COMPONENTE DE PRODUCTOS */
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
